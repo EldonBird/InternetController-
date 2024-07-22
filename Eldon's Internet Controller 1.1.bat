@@ -61,9 +61,5 @@ arp -a
 CHOICE /M "Return To Menu"
 GOTO START
 
-:PF
-CLS
-
-
 
 GOTO START
