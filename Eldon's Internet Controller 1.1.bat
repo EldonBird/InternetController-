@@ -21,10 +21,18 @@ ECHO '---'        ---`-'                                       `--`             
 ECHO cut - Cut Internet
 ECHO new - Renew Internet 
 ECHO net - internet conections and dns
+ECHO dis - Display dns and connections
+ECHO clr - Clear Dns Cache
+ECHO hon - Hide on Network
+ECHO son - Show on Network
 SET /P D=TYPE:
 If %D%==cut GOTO CUT
 If %D%==new GOTO RENEW
-If %D%==net GOTO NETWORK
+If %D%==dis GOTO Display
+If %D%==clr GOTO FLUSH
+If %D%==hon GOTO HON
+If %D%==son GOTO SON
+If %D%==arp GOTO ARP
 
 :CUT
 ipconfig /release
@@ -33,23 +41,6 @@ GOTO START
 :RENEW
 ipconfig /renew
 GOTO START
-
-:NETWORK
-CLS
-ECHO ------------------------
-ECHO NETWORKS AND CONNECTIONS
-ECHO ------------------------
-ECHO dis - Display dns and connections
-ECHO clr - Clear Dns Cache
-ECHO hon - Hide on Network
-ECHO son - Show on Network
-ECHO arp - Arp -a or a ping of networks
-Set /P D=Type:
-If %D%==dis GOTO Display
-If %D%==clr GOTO FLUSH
-If %D%==hon GOTO HON
-If %D%==son GOTO SON
-If %D%==arp GOTO ARP
 
 :DISPLAY
 CLS
